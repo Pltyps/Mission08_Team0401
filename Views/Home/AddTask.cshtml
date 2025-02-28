@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Task Form";
+}
+
+@model Mission08_Team0401.Models.TaskItem
+
+<div class="container py-4">
+    <h1 class="text-center">Task Form</h1>
+
+    <form method="post">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <input type="hidden" asp-for="TaskId">
+                <label asp-for="TaskName" class="form-label">Task</label>
+                <input asp-for="TaskName" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="DueDate" class="form-label">Due Date</label>
+                <input asp-for="DueDate" type="date" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="Quadrant" class="form-label">Quadrant</label>
+                <select asp-for="Quadrant" class="form-select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="CategoryId" class="form-label">Category</label>
+                <select asp-for="CategoryId" class="form-select">
+                    <option value="">Select a Category</option>
+                    @foreach (var category in ViewBag.Categories)
+                    {
+                        <option value="@category.CategoryId">@category.CategoryName</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="Completed" class="form-label">Have you completed the task?</label>
+                <select asp-for="Completed" class="form-select">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-primary w-100">Save Task</button>
+            </div>
+        </div>
+    </form>
+</div>

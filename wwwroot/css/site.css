@@ -1,22 +1,22 @@
-html {
-  font-size: 14px;
+.quadrant-1 {
+    background-color: #f8d7da;
 }
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/* Light red */
+.quadrant-2 {
+    background-color: #d4edda;
 }
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+/* Light green */
+.quadrant-3 {
+    background-color: #fff3cd;
 }
-
-html {
-  position: relative;
-  min-height: 100%;
+/* Light yellow */
+.quadrant-4 {
+    background-color: #d1ecf1;
 }
+/* Light blue */
 
-body {
-  margin-bottom: 60px;
+
+.btn-sm {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
 }

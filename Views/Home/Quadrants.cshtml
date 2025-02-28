@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewData["Title"] = "Quadrants";
+}
+
+@* @model List<Task>  <!-- Edit appropriatelly --> *@
+
+<div class="container border p-3 align-items-center">
+    <h1>STEPHEN COVEY'S TIME MANAGEMENT MATRIX</h1>
+
+    <!--Column Header-->
+    <div class="row">
+        <div class="col-md-2 border p-3"></div>
+        <div class="col-md-5 border p-3"><h2>Urgent</h2></div>
+        <div class="col-md-5 border p-3"><h2>Not Urgent</h2></div>
+    </div>
+
+    <!--Quadrant 1 & 2-->
+    <div class="row">
+        <div class="col-md-2 border p-3 d-flex align-items-center"><h2>Important</h2></div>
+        
+        <div class="col-md-5 border p-3 quadrant-1">
+            <h3>Quadrant 1</h3>
+            <!-- Quadrant 1 Tasks Here-->
+             <ul>
+                 @foreach (var x in Model)
+                 {
+                     if (x.Quadrant == 1)
+                     {
+                         <li>@x.Task</li>
+						<a class="btn btn-light btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@x.Id">Update</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@x.Id">Delete</a>
+                     }
+                 }
+             </ul>
+        </div>
+
+        <div class="col-md-5 border p-3 quadrant-2">
+			<h3>Quadrant 2</h3>
+			<!-- Quadrant 2 Tasks Here-->
+            <ul>
+                 @foreach (var x in Model)
+                 {
+                     if (x.Quadrant == 2)
+                     {
+                         <li>@x.Task</li>
+                        <a class="btn btn-light btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@x.Id">Update</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@x.Id">Delete</a>
+                     }
+                 }
+             </ul>
+        </div>
+    </div>
+
+    <!--Quadrant 3 & 4-->
+    <div class="row">
+        <div class="col-md-2 border p-3 d-flex align-items-center"><h2>Not Important</h2></div>
+        
+        <div class="col-md-5 border p-3 quadrant-3">
+            <h3>Quadrant 3</h3>
+            <!-- Quadrant 3 Tasks Here-->
+            <ul>
+                @foreach (var x in Model)
+                {
+                    if (x.Quadrant == 3)
+                    {
+                        <li>@x.Task</li>
+                        <a class="btn btn-light btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@x.Id">Update</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@x.Id">Delete</a>
+                    }
+                }
+            </ul>
+        </div>
+
+        <div class="col-md-5 border p-3 quadrant-4">
+            <h3>Quadrant 4</h3>
+            <!-- Quadrant 4 Tasks Here-->
+            <ul>
+                @foreach (var x in Model)
+                {
+                    if (x.Quadrant == 4)
+                    {
+                        <li>@x.Task</li>
+                        <a class="btn btn-light btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@x.Id">Update</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@x.Id">Delete</a>
+                    }
+                }
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+ 

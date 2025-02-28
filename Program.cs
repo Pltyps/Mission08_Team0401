@@ -20,8 +20,10 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Ensure only one default route is defined
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Task}/{action=Index}/{id?}"
+);
 
 app.Run();

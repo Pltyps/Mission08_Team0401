@@ -3,7 +3,7 @@
     ViewData["Title"] = "Quadrants";
 }
 
-@* @model List<Task>  <!-- Edit appropriatelly --> *@
+@model List<Mission08_Team0401.Models.TaskItem>
 
 <div class="container border p-3 align-items-center">
     <h1>STEPHEN COVEY'S TIME MANAGEMENT MATRIX</h1>
@@ -18,18 +18,18 @@
     <!--Quadrant 1 & 2-->
     <div class="row">
         <div class="col-md-2 border p-3 d-flex align-items-center"><h2>Important</h2></div>
-        
+
         <div class="col-md-5 border p-3 quadrant-1">
             <h3>Quadrant 1</h3>
             <!-- Quadrant 1 Tasks Here-->
              <ul>
                  @foreach (var x in Model)
                  {
-                     if (x.Quadrant == 1)
+                     if (x.Quadrant == 1 && !x.Completed)
                      {
-                         <li>@x.Task</li>
-						<a class="btn btn-light btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@x.Id">Update</a>
-                        <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@x.Id">Delete</a>
+                         <li>@x.TaskName</li>
+                         <a class="btn btn-light btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@x.TaskId">Update</a>
+                         <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
                      }
                  }
              </ul>
@@ -39,15 +39,16 @@
 			<h3>Quadrant 2</h3>
 			<!-- Quadrant 2 Tasks Here-->
             <ul>
-                 @foreach (var x in Model)
-                 {
-                     if (x.Quadrant == 2)
-                     {
-                         <li>@x.Task</li>
-                        <a class="btn btn-light btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@x.Id">Update</a>
-                        <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@x.Id">Delete</a>
-                     }
-                 }
+                @foreach (var x in Model)
+                {
+                    if (x.Quadrant == 2 && !x.Completed)
+                    {
+                        <li>@x.TaskName</li>
+                        <a class="btn btn-light btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@x.TaskId">Update</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
+                    }
+                }
+
              </ul>
         </div>
     </div>
@@ -55,20 +56,21 @@
     <!--Quadrant 3 & 4-->
     <div class="row">
         <div class="col-md-2 border p-3 d-flex align-items-center"><h2>Not Important</h2></div>
-        
+
         <div class="col-md-5 border p-3 quadrant-3">
             <h3>Quadrant 3</h3>
             <!-- Quadrant 3 Tasks Here-->
             <ul>
                 @foreach (var x in Model)
                 {
-                    if (x.Quadrant == 3)
+                    if (x.Quadrant == 3 && !x.Completed)
                     {
-                        <li>@x.Task</li>
-                        <a class="btn btn-light btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@x.Id">Update</a>
-                        <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@x.Id">Delete</a>
+                        <li>@x.TaskName</li>
+                        <a class="btn btn-light btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@x.TaskId">Update</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
                     }
                 }
+
             </ul>
         </div>
 
@@ -78,13 +80,14 @@
             <ul>
                 @foreach (var x in Model)
                 {
-                    if (x.Quadrant == 4)
+                    if (x.Quadrant == 4 && !x.Completed)
                     {
-                        <li>@x.Task</li>
-                        <a class="btn btn-light btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@x.Id">Update</a>
-                        <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@x.Id">Delete</a>
+                        <li>@x.TaskName</li>
+                        <a class="btn btn-light btn-sm" asp-controller="Home" asp-action="Update" asp-route-id="@x.TaskId">Update</a>
+                        <a class="btn btn-danger btn-sm" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a>
                     }
                 }
+
             </ul>
         </div>
 

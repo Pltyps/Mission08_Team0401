@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Mission08_Team0401.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add DbContext configuration here
+builder.Services.AddDbContext<TaskDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("TaskDatabase"))); // Adjust connection string accordingly
 
 var app = builder.Build();
 
@@ -23,7 +30,8 @@ app.UseAuthorization();
 // Ensure only one default route is defined
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Task}/{action=Index}/{id?}"
+    pattern: "{controller=Home}/{action=Index}/{id?}"
 );
 
 app.Run();
+
